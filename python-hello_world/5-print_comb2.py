@@ -1,2 +1,7 @@
 for i in range(100):
-    print('{},'.format(i) ,end='\n')
+
+    if i==99:
+         print('{}'.format(i))
+
+    else:
+         print('{},'.format(i) ,end='\n')
