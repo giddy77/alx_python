@@ -1,0 +1,12 @@
+
+def main():
+    reverse_string("Hello")
+    reverse_string("")
+    reverse_string("madam")
+    reverse_string("Hello, World!")
+
+def reverse_string(string):
+    return string[:-1]
+
+
+main()
