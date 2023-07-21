@@ -1,16 +1,10 @@
 
-#!/usr/bin/env python3
-
+def main():
+    add(1, 2)
+    add(100, -2)
+    add(-100, -2)
 
 def add(a, b):
     return a + b
 
-result = add(1, 2)
-print(result)
-
-
-result = add(100, -2)
-print(result)
-
-result = add(-100, -2)
-print(result)
+main()
