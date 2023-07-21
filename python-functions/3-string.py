@@ -6,7 +6,7 @@ def main():
     reverse_string("Hello, World!")
 
 def reverse_string(string):
-    return string[:-1]
+    return string[::-1]
 
 
 main()
