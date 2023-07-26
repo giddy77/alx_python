@@ -12,5 +12,6 @@ matrix = [
     [7, 8, 9]
 ]
 
-
 print_matrix_integer(matrix)
+print("--")
+print_matrix_integer()
