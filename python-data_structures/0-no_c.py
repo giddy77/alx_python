@@ -1,4 +1,6 @@
 def no_c(my_string):
-   return my_string.replace('c', '')
-
-no_c("hello c")
+    new_string = ""
+    for char in my_string:
+        if char.lower() != 'c':
+            new_string += char
+    return new_string
