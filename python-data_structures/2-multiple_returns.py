@@ -1,8 +1,9 @@
+
+sentence = ''  
 def multiple_returns(sentence):
     if len(sentence) == 0:
-        return (None, None)
-    else:
-        return (len(sentence), sentence[0])
-    
-length, first = multiple_returns("")
+        return (None, None)  
+length = len(sentence)
+first = sentence[0]
+multiple_returns(sentence)
 print("Length: {} - First character: {}".format(length, first))
