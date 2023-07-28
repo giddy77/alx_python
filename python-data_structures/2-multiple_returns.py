@@ -3,6 +3,6 @@ def multiple_returns(sentence):
         return (None, None)
     return (len(sentence), sentence[0])
 
-result = multiple_returns()
+result = multiple_returns("Holberton")
 print("Length: {} - First character: {}".format(result[0], result[1]))
 
