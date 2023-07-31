@@ -1,5 +1,3 @@
-#!/usr/bin/python3
-
 def update_dictionary(a_dictionary, key, value):
     # Check if the key exists in the dictionary
     if key in a_dictionary:
@@ -10,6 +8,7 @@ def update_dictionary(a_dictionary, key, value):
         a_dictionary[key] = value
 
     # Sort the dictionary by keys and print the key-value pairs
-    for k in sorted(a_dictionary.keys()):
-        print("{}: {}".format(k, a_dictionary[k] if a_dictionary[k] is not None else k))
+    sorted_dict = {k: a_dictionary[k] for k in sorted(a_dictionary)}
+    for k in sorted_dict:
+        print("{}: {}".format(k, sorted_dict[k]))
 
