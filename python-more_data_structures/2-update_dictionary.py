@@ -9,12 +9,7 @@ def update_dictionary(a_dictionary, key, value):
         # Add the new key-value pair to the dictionary
         a_dictionary[key] = value
 
-# Define the dictionary
-my_dict = {'a': 'A', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e'}
+    # Sort the dictionary by keys and print the key-value pairs
+    for k in sorted(a_dictionary.keys()):
+        print("{}: {}".format(k, a_dictionary[k] if a_dictionary[k] is not None else k))
 
-# Call the update_dictionary function
-update_dictionary(my_dict, 'xx', None)
-
-# Sort and print the key-value pairs in the dictionary
-for k in sorted(my_dict):
-    print("{}: {}".format(k, my_dict[k]))
