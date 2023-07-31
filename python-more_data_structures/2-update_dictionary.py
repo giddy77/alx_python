@@ -10,12 +10,11 @@ def update_dictionary(a_dictionary, key, value):
         a_dictionary[key] = value
 
 # Define the dictionary
-my_dict = {'language': "C", 'number': 89, 'track': "Low level"}
+my_dict = {'a': 'A', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e'}
 
 # Call the update_dictionary function
-update_dictionary(my_dict, 'language', "Python")
+update_dictionary(my_dict, 'xx', None)
 
 # Sort and print the key-value pairs in the dictionary
-keys = sorted(my_dict.keys())
-for k in keys:
+for k in sorted(my_dict):
     print("{}: {}".format(k, my_dict[k]))
