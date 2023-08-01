@@ -24,21 +24,24 @@ class Square:
 
         """
         def set_size(self,value):
-            """this one sets the value of the size property to the value"""
+            """this one sets the value of the size property 
+            to the value"""
             self.__size = value
+            
+            """checking whether the value set is an interger"""
             
             if not isinstance(size, int):
                 raise TypeError("size must be an integer")
-
+            """checks whether the size is greater than 0"""
             if size < 0:
                 raise ValueError("size must be >= 0")
 
             self.__size = size
 
             def set_size(self):
-        """Calculate the area of the square.
+                """Calculate the area of the square.
 
-        Returns:
+          Returns:
             int: The area of the square.
 
         """
