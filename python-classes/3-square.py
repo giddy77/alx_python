@@ -24,6 +24,7 @@ class Square:
 
         """
         def set_size(self,value):
+            """this one sets the value of the size property to the value"""
             self.__size = value
             
             if not isinstance(size, int):
