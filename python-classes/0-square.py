@@ -1,10 +1,12 @@
+# module_example.py
+
 """This is a module-level documentation.
 
 This module contains a class called Square, which defines a square by its size.
 
 """
+
 class Square:
-    ...
     """Represents a square.
 
     This class defines a square by its size.
@@ -13,12 +15,14 @@ class Square:
         __size (int): The size of the square.
 
     """
-    
+
     def __init__(self, size):
         """Initialize a new Square instance.
 
-        Arguments:
+        Args:
             size (int): The size of the square.
 
         """
         self.__size = size
+
+
