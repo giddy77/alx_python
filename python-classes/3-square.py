@@ -23,11 +23,19 @@ class Square:
             size (int): The size of the square.
 
         """
-        def set_size(self,value):
-            """this one sets the value of the size property 
-            to the value"""
-            self.__size = value
-            
+        @property
+        def size(self):
+            """Get the size of the square.
+
+        Returns:
+            int: The size of the square.
+
+        """
+            return self.__size
+
+        @size.setter
+        def size(self, value):
+            """Set the size of the size"""
             """checking whether the value set is an interger"""
             
             if not isinstance(size, int):
