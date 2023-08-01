@@ -1,5 +1,7 @@
 """this is class square"""
 class Square:
+    """creates a class square
+    and below is it's intialiasation"""
     def __init__(self, size=0):
         """Initialize a new Square instance.
 
