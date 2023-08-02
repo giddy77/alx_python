@@ -6,5 +6,5 @@ class BaseGeometry:
 bg = BaseGeometry()
 
 print(bg)
-print(dir())
+print(dir(bg))
 print(dir(BaseGeometry))
