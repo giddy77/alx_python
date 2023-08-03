@@ -12,7 +12,7 @@ class BaseGeometry:
             raise ValueError(f"{name} must be greater than 0")
 
 
-
+"""this is  a class that inherits from the BaseGeometry Class"""
 class Rectangle(BaseGeometry):
     
     def __init__(self, width, hieght):
