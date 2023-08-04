@@ -31,7 +31,7 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)  # Corrected parameter name
 
         
-        
+        """this is the area"""
     def area(self):
         return self.__width * self.__height
     
