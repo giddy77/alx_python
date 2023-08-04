@@ -21,7 +21,7 @@ class BaseGeometry(metaclass = metaclassbase):
         
 
 
-
+"""this isthe rectangle class"""
 class Rectangle(BaseGeometry):
     """This is a class that inherits from the BaseGeometry Class"""
     def __init__(self, width, height):
