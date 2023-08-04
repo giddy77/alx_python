@@ -1,3 +1,4 @@
+"""this is my module"""
 class metaclassbase(type):
     def __dir__(cls):
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
