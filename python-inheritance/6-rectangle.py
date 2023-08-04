@@ -23,10 +23,10 @@ class BaseGeometry(metaclass = metaclassbase):
 
 
 class Rectangle(BaseGeometry):
-    """this is  a class that inherits from the BaseGeometry Class"""
+    """This is a class that inherits from the BaseGeometry Class"""
     def __init__(self, width, height):
         self.width = width
         self.height = height
         
         self.integer_validator("width", width)
-        self.integer_validator("hieght", height)
+        self.integer_validator("height", height)  # Corrected parameter name
