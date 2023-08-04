@@ -5,4 +5,4 @@ class BaseGeometry:
         """this"""
         pass
 
-BaseGeometry()
+BaseGeometry(dir())
