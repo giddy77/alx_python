@@ -1,26 +1,36 @@
 """this is an empty class"""
-class BaseGeometry:
+class metaclassbase(type):
+    def __dir__(cls):
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    """this is my class"""
+class BaseGeometry(metaclass = metaclassbase):
     """this is a place holder for this empty class"""
+    def __dir__(cls):
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
     
     def area(self):
         raise Exception("area() is not implemented")
+
     
     def integer_validator(self, name, value):
         if not isinstance(value, int):
-            raise Exception(f'{name} must be an integer')
+            raise TypeError(f'{name} must be an integer')
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+        
 
 
 
 class Rectangle(BaseGeometry):
-    """this is  a class that inherits from the BaseGeometry Class"""
-    def __init__(self, width, hieght):
-        self.__width = width
-        self.__hieght = hieght
+    """This is a class that inherits from the BaseGeometry Class"""
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
         
         self.integer_validator("width", width)
-        self.integer_validator("hieght", hieght)
+        self.integer_validator("height", height)  # Corrected parameter name
+
         
         
     def area(self):
