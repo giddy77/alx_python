@@ -1,5 +1,5 @@
 """this is an empty class"""
-class metaclass:
+class metaclass(type):
     def __dir__(cls):
         return [attribute for attribute in super().__dir__ if attribute != '__init_subclass__']
     """this is my class"""
