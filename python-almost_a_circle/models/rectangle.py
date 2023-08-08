@@ -10,8 +10,7 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
     
-    """ This the 
-    Getter  for width"""
+    """Ok"""
     def get_width(self):
         return self.__width
     
