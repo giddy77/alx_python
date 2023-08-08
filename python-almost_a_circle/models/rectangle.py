@@ -1,4 +1,4 @@
-# we import the base class
+""" we import the base class"""
 from .base import Base
 """this is definition of class Rectangle"""
 class Rectangle(Base):
