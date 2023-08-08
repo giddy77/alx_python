@@ -10,7 +10,7 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
     
-    # Getter and setter for width
+    """Getter and setter for width"""
     def get_width(self):
         return self.__width
     
@@ -18,7 +18,7 @@ class Rectangle(Base):
         if width > 0:
             self.__width = width
     
-    # Getter and setter for height
+    """Getter and setter for height"""
     def get_height(self):
         return self.__height
     
