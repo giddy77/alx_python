@@ -4,12 +4,13 @@ from .base import Base
 class Rectangle(Base):
     """here we have the constructor of the Rectangle Class"""
     def __init__(self, width, height, x=0, y=0, id=None):
-        super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
-    
+        self.__width = self.__validate_integer_positive("width", width)
+        self.__height = self.__validate_integer_positive("height", height)
+        self.__x = self.__validate_integer_nonnegative("x", x)
+        self.__y = self.__validate_integer_nonnegative("y", y)
+        
+        
+        
     """ 
     This the 
     Getter  for width specifies
@@ -45,3 +46,19 @@ class Rectangle(Base):
     """setter for y"""
     def set_y(self, y):
         self.__y = y
+        
+        """the validator methods are here"""
+
+    def __validate_integer_positive(self, name, value):
+        if not isinstance(value, int):
+            raise TypeError(f"{name} must be an integer")
+        if value <= 0:
+            raise ValueError(f"{name} must be > 0")
+        return value
+
+    def __validate_integer_nonnegative(self, name, value):
+        if not isinstance(value, int):
+            raise TypeError(f"{name} must be an integer")
+        if value < 0:
+            raise ValueError(f"{name} must be >= 0")
+        return value
