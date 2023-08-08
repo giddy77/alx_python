@@ -1,7 +1,7 @@
 # we import the base class
-from models import base
+from .base import Base
 """this is definition of class Rectangle"""
-class Rectangle(base):
+class Rectangle(Base):
     """here we have the constructor of the Rectangle Class"""
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
