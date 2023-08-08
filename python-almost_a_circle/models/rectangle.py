@@ -10,9 +10,12 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
     
-    """Getter  for width"""
+    """ This the 
+    Getter  for width"""
     def get_width(self):
         return self.__width
+    
+    
     """setter for width"""
     def set_width(self, width):
         if width > 0:
