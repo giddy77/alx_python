@@ -1,5 +1,5 @@
 # we import the base class
-from base import Base
+from models import Base
 """this is definition of class Rectangle"""
 class Rectangle(Base):
     """here we have the constructor of the Rectangle Class"""
