@@ -61,14 +61,18 @@ class Rectangle(Base):
     def __validate_integer_positive(self, name, value):
         """the validator methods are here"""
         if not isinstance(value, int):
+            """checks whether the value is an interger"""
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
+            """checks whether the value is greater than 0"""
             raise ValueError(f"{name} must be > 0")
         return value
 
     def __validate_integer_nonnegative(self, name, value):
         if not isinstance(value, int):
+            """checks whether the value is an interger"""
             raise TypeError(f"{name} must be an integer")
         if value < 0:
+            """checks whether the value is greater or equal to 0"""
             raise ValueError(f"{name} must be >= 0")
         return value
