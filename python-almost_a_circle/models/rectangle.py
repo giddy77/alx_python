@@ -12,45 +12,54 @@ class Rectangle(Base):
         
         
         
-    """ 
-    This the 
-    Getter  for width specifies
-    the getter method for the Rectangle class
-    """
+   
     def get_width(self):
-        return self.__width
+         """ 
+        This the 
+        Getter  for width specifies
+        the getter method for the Rectangle class
+        """
+         return self.__width
     
     
-    """setter for width"""
+    
     def set_width(self, width):
+        """setter for width"""
         if width > 0:
             self.__width = width
     
-    """Getter  for height"""
     def get_height(self):
+        
+        """Getter  for height"""
         return self.__height
-    """setter for width"""
+    
     def set_height(self, height):
+        """setter for width"""
         if height > 0:
             self.__height = height
     
-    """Getter  for x"""
+   
     def get_x(self):
+        """Getter  for x"""
         return self.__x
-    """setter for x"""
+    
     def set_x(self, x):
+        """setter for x"""
         self.__x = x
     
-    """Getter for y"""
+    
     def get_y(self):
+        """Getter for y"""
         return self.__y
-    """setter for y"""
+    
     def set_y(self, y):
+        """setter for y"""
         self.__y = y
         
-        """the validator methods are here"""
+        
 
     def __validate_integer_positive(self, name, value):
+        """the validator methods are here"""
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
