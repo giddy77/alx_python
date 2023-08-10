@@ -1,8 +1,8 @@
 """ we import the base class"""
 from .base import Base
-"""this is definition of class Rectangle"""
+
 class Rectangle(Base):
-    
+    """this is definition of class Rectangle"""
     def __init__(self, width, height, x=0, y=0, id=None):
         """here we have the constructor of the Rectangle Class"""
         self.__width = self.__validate_integer_positive("width", width)
