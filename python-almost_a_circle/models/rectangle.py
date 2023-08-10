@@ -78,7 +78,7 @@ class Rectangle(Base):
             """checks whether the value is greater or equal to 0"""
             raise ValueError(f"{name} must be >= 0")
         return value
-  """create an instance of the rectangle class"""  
+"""create an instance of the rectangle class"""  
 rectangle_instance = Rectangle(width=10, height=5)
 
 # Print the attributes of the rectangle instance
