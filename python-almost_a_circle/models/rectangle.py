@@ -12,3 +12,70 @@ class Rectangle(Base):
         
         
 
+        
+   
+    def get_width(self):
+         """ 
+        This the 
+        Getter  for width specifies
+        the getter method for the Rectangle class
+        """
+         return self.__width
+    
+    
+    
+    def set_width(self, width):
+        """setter for width"""
+        if width > 0:
+            self.__width = width
+    
+    def get_height(self):
+        
+        """Getter  for height"""
+        return self.__height
+    
+    def set_height(self, height):
+        """setter for width"""
+        if height > 0:
+            self.__height = height
+    
+   
+    def get_x(self):
+        """Getter  for x"""
+        return self.__x
+    
+    def set_x(self, x):
+        """setter for x"""
+        self.__x = x
+    
+    
+    def get_y(self):
+        """Getter for y"""
+        return self.__y
+    
+    def set_y(self, y):
+        """setter for y"""
+        self.__y = y
+        
+        
+
+    def __validate_integer_positive(self, name, value):
+        """the validator methods are here"""
+        if not isinstance(value, int):
+            """checks whether the value is an interger"""
+            raise TypeError(f"{name} must be an integer")
+        if value <= 0:
+            """checks whether the value is greater than 0"""
+            raise ValueError(f"{name} must be > 0")
+        return value
+
+    def __validate_integer_nonnegative(self, name, value):
+        """this is the nanonegative validator"""
+        if not isinstance(value, int):
+            """checks whether the value is an interger"""
+            raise TypeError(f"{name} must be an integer")
+        if value < 0:
+            """checks whether the value is greater or equal to 0"""
+            raise ValueError(f"{name} must be >= 0")
+        return value
+    
