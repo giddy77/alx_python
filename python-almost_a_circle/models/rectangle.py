@@ -69,6 +69,7 @@ class Rectangle(Base):
         return value
 
     def __validate_integer_nonnegative(self, name, value):
+        """this is the nanonegative validator"""
         if not isinstance(value, int):
             """checks whether the value is an interger"""
             raise TypeError(f"{name} must be an integer")
