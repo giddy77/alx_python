@@ -77,3 +77,6 @@ class Rectangle(Base):
             """checks whether the value is greater or equal to 0"""
             raise ValueError(f"{name} must be >= 0")
         return value
+    
+
+Rectangle()
