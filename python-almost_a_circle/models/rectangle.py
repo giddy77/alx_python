@@ -78,5 +78,3 @@ class Rectangle(Base):
             raise ValueError(f"{name} must be >= 0")
         return value
     
-
-Rectangle()
