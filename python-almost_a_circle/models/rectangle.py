@@ -81,6 +81,6 @@ class Rectangle(Base):
 """create an instance of the rectangle class"""  
 rectangle_instance = Rectangle()
 
-# Print the attributes of the rectangle instance
+"""Print the attributes of the rectangle instance"""
 print( rectangle_instance.get_width())
 print( rectangle_instance.get_height())
