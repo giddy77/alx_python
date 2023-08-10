@@ -82,5 +82,5 @@ class Rectangle(Base):
 rectangle_instance = Rectangle(width=10, height=5)
 
 # Print the attributes of the rectangle instance
-print("Width:", rectangle_instance.get_width())
-print("Height:", rectangle_instance.get_height())
+print( rectangle_instance.get_width())
+print( rectangle_instance.get_height())
