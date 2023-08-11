@@ -79,6 +79,6 @@ class Rectangle(Base):
             raise ValueError(f"{name} must be >= 0")
         return value
     
-    def create(cls, width, height):
+def create(cls, width, height):
         """Create a new Rectangle instance with only width and height"""
         return cls(width, height)
