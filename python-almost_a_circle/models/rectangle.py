@@ -78,3 +78,7 @@ class Rectangle(Base):
             """checks whether the value is greater or equal to 0"""
             raise ValueError(f"{name} must be >= 0")
         return value
+    
+    def create(cls, width, height):
+        """Create a new Rectangle instance with only width and height"""
+        return cls(width, height)
