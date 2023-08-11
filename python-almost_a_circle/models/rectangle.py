@@ -78,9 +78,3 @@ class Rectangle(Base):
             """checks whether the value is greater or equal to 0"""
             raise ValueError(f"{name} must be >= 0")
         return value
-"""create an instance of the rectangle class"""  
-rectangle_instance = Rectangle()
-
-"""Print the attributes of the rectangle instance"""
-print( rectangle_instance.get_width())
-print( rectangle_instance.get_height())
