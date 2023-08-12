@@ -60,7 +60,6 @@ class Rectangle(Base):
         
 
 
-    
-def create(cls, width, height):
+    def create(cls, width, height):
         """Create a new Rectangle instance with only width and height"""
         return cls(width, height)
