@@ -1,6 +1,8 @@
+"""this the module"""
 from models.base import Base
 
 class Rectangle(Base):
+    """class base"""
     def init(self, width, height, x=0, y=0, id=None):
         super().init(id)
         self.width = width
