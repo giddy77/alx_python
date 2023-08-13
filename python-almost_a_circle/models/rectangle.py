@@ -56,7 +56,9 @@ class Rectangle(Base):
             raise ValueError("Y must be an integer")
 
     def area(self):
-        """get the area"""
+        """get the area 
+        of the rectangle
+        """
         return self.width * self.height
 
     def display(self):
