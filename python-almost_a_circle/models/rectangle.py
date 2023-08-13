@@ -102,4 +102,4 @@ class Rectangle(Base):
 rectangle_instance = Rectangle(width=10, height=5)
 
 # Call the area method and print the result
-print("Area:", rectangle_instance.area())
+# print("Area:", rectangle_instance.area())
