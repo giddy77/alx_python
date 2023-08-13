@@ -1,73 +1,71 @@
-"""this the module"""
 from models.base import Base
 
 class Rectangle(Base):
-    """class base"""
-    def init(self, width, height, x=0, y=0, id=None):
-        """intialization"""
-        super().init(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+    def __init__(self, width, height, x=0, y=0, id=None):
+        super().__init__(id)
+        self._width = width
+        self._height = height
+        self._x = x
+        self._y = y
 
     @property
     def width(self):
-        return self.width
+        return self._width
 
     @width.setter
     def width(self, value):
         if isinstance(value, int) and value > 0:
-            self.width = value
+            self._width = value
         else:
             raise ValueError("Width must be a positive integer")
 
     @property
     def height(self):
-        return self.height
+        return self._height
 
     @height.setter
     def height(self, value):
         if isinstance(value, int) and value > 0:
-            self.height = value
+            self._height = value
         else:
             raise ValueError("Height must be a positive integer")
 
     @property
     def x(self):
-        return self.x
+        return self._x
 
     @x.setter
     def x(self, value):
         if isinstance(value, int):
-            self.x = value
+            self._x = value
         else:
             raise ValueError("X must be an integer")
 
     @property
     def y(self):
-        return self.y
+        return self._y
 
     @y.setter
     def y(self, value):
         if isinstance(value, int):
-            self.y = value
+            self._y = value
         else:
             raise ValueError("Y must be an integer")
 
     def area(self):
-        """get the area 
-        of the rectangle
-        """
-        return self.width * self.height
+        return self._width * self._height
 
     def display(self):
-        """display the area"""
-        for _ in range(self.__y):
+        for _ in range(self._y):
             print()
-        for _ in range(self.height):
-            print(" " * self.x + "#" * self.width)
+        for _ in range(self._height):
+            print(" " * self._x + "#" * self._width)
 
-    def str(self):
-        """this is rectangle"""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.__height}"
+    def __str__(self):
+        return f"[Rectangle] ({self.id}) {self._x}/{self._y} - {self._width}/{self._height}"
+
+# Create an instance of Rectangle with width and height
+rectangle_instance = Rectangle(width=10, height=5)
+
+# Call the area method and print the result
+print("Area:", rectangle_instance.area())
