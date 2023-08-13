@@ -4,6 +4,7 @@ from models.base import Base
 class Rectangle(Base):
     """class base"""
     def init(self, width, height, x=0, y=0, id=None):
+        """intialization"""
         super().init(id)
         self.width = width
         self.height = height
