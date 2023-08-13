@@ -56,10 +56,11 @@ class Rectangle(Base):
             raise ValueError("Y must be an integer")
 
     def area(self):
+        """get the area"""
         return self.width * self.height
 
     def display(self):
-        """get the area"""
+        """display the area"""
         for _ in range(self.__y):
             print()
         for _ in range(self.height):
