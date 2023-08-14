@@ -5,6 +5,7 @@ url = "https://alu-intranet.hbtn.io/status"
 response = requests.get(url)
 
 if response.status_code == 200:
+    """if the request is a success"""
     data = response.json()
 
     print("\t- type:", type(data))
