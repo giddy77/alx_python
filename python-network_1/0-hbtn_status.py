@@ -8,6 +8,6 @@ content = response.status_code
 strtype = response.reason
 
 print("Body response: ")
-print("-" + strtype)
+print("-" + str(type(strtype)))
 print("-" + str(content))
 
