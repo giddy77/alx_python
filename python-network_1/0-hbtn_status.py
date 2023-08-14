@@ -7,5 +7,7 @@ response = requests.get(url)
 content = response.status_code
 strtype = response.reason
 
-
+print("Body response: ")
+print("-" + strtype)
+print("-" + str(content))
 
