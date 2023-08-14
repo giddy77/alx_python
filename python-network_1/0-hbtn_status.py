@@ -7,7 +7,9 @@ response = requests.get(url)
 content = response.status_code
 strtype = response.reason
 
-print("Body response: ")
-print("-" + str(type(strtype)))
-print("-" + str(content))
+
+
+print("Body response:")
+print(f"\t- type: {type(strtype)}")
+print(f"\t- content: {strtype}")
 
