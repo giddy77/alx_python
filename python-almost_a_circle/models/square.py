@@ -1,6 +1,6 @@
-# models/square.py
+# models/square.py"""
 from models.rectangle import Rectangle
-
+"""the Square class that inherits from the class rectangle"""
 class Square(Rectangle):
     """
     A class representing a square, inheriting from the Rectangle class.
