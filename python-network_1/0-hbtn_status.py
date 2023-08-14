@@ -7,6 +7,5 @@ response = requests.get(url)
 content = response.status_code
 strtype = response.reason
 
-print("-" + strtype)
-print("-" + str(content))
+
 
