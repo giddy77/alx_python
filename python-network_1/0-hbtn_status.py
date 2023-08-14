@@ -1,3 +1,4 @@
+"""this is first use of requests modules to make requests to the server"""
 import requests
 
 url = "https://alu-intranet.hbtn.io/status"
