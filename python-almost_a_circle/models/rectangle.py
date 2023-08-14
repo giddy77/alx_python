@@ -98,8 +98,8 @@ class Rectangle(Base):
         """
         return f"[Rectangle] ({self.id}) {self._x}/{self._y} - {self._width}/{self._height}"
 
-# Create an instance of Rectangle with width and height
-rectangle_instance = Rectangle(width=10, height=5)
+# # Create an instance of Rectangle with width and height
+# rectangle_instance = Rectangle(width=10, height=5)
 
-# Call the area method and print the result
-print("Area:", rectangle_instance.area())
+# # Call the area method and print the result
+# print("Area:", rectangle_instance.area())
