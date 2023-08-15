@@ -6,7 +6,7 @@ def main():
     url = sys.argv[1]
     
     response = requests.get(url)
-    responsebody = response.content
+    responsebody = response.text
     print(responsebody)
     
     if response.status_code > 400:
