@@ -14,7 +14,7 @@ def main():
         user_id = user_data['id']
         print(user_id)
     else:
-        print("Request failed with status code:", response.status_code)
+        print("None")
 
 if __name__ == "__main__":
     main()
