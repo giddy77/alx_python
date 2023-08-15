@@ -3,7 +3,8 @@ import sys
 
 def main():
     url = sys.argv[1]
-    email = requests.post(url,email)
+    response = requests.post(url,email)
+    email = response.content['email']
     
-    print(f"{email}")
+    print(f"Email: {email}")
     
