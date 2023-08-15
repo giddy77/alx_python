@@ -12,7 +12,7 @@ def main():
     if response.status_code == 200:
         user_data = response.json()
         user_id = user_data['id']
-        print("User ID:", user_id)
+        print(user_id)
     else:
         print("Request failed with status code:", response.status_code)
 
