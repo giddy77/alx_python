@@ -4,7 +4,7 @@ import sys
 def list_states(username, password, database_name):
     try:
         # Connect to the MySQL server
-        db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database_name)
+        db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db="hbtn_0e_0_usa")
         
         # Create a cursor object to interact with the database
         cursor = db.cursor()
