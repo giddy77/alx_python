@@ -25,7 +25,7 @@ if __name__ == "__main__":
 
         """use parameters query to 
         ensure the input is treated as data and not query"""
-        query = "SELECT * FROM states WHERE name = %s ORDER BY id"
+        query = "SELECT * FROM cities WHERE name = %s ORDER BY id"
         cursor.execute(query, (state_name_searched,))
 
         # Fetch and display the results
