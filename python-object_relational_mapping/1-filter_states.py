@@ -11,7 +11,7 @@ def list_states(username, password, database_name):
             passwd=password,
             db=database_name)
         
-        # Create a cursor object to interact with the database
+        """Create a cursor object to interact with the database"""
         cursor = db.cursor()
 
         # Execute the SQL query to retrieve states
