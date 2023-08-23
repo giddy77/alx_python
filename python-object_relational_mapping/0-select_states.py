@@ -1,36 +1,30 @@
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+import MySQLdb
 import sys
-
-# Define the SQLAlchemy model
-Base = declarative_base()
-
-class State(Base):
-    __tablename__ = 'states'
-    id = Column(Integer, primary_key=True)
-    name = Column(String(128), nullable=False)
 
 def list_states(username, password, database_name):
     try:
-        # Create a database connection
-        engine = create_engine(f"mysql://{username}:{password}@localhost:3306/{database_name}")
+        # Connect to the MySQL server
+        db = MySQLdb.connect(host='localhost', port=3306, user=username, passwd=password, db=database_name)
+        
+        # Create a cursor object to interact with the database
+        cursor = db.cursor()
 
-        # Create a session
-        Session = sessionmaker(bind=engine)
-        session = Session()
+        # Execute the SQL query to retrieve states
+        query = "SELECT * FROM states ORDER BY states.id ASC"
+        cursor.execute(query)
 
-        # Query all states and order by id
-        states = session.query(State).order_by(State.id).all()
+        # Fetch all the rows
+        rows = cursor.fetchall()
 
         # Display the results
-        for state in states:
-            print(state.id, state.name)
+        for row in rows:
+            print(row)
 
-        # Close the session
-        session.close()
+        # Close the cursor and the database connection
+        cursor.close()
+        db.close()
 
-    except Exception as e:
+    except MySQLdb.Error as e:
         print(f"Error: {e}")
         sys.exit(1)
 
