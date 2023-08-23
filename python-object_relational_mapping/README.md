@@ -1,1 +1,1 @@
-This is the python relational mapping project
+this is object relational mapping project
