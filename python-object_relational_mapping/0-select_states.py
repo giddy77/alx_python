@@ -28,7 +28,6 @@ def list_states(username, password, database_name):
         # Close the cursor and the database connection
         cursor.close()
         db.close()
-
     except MySQLdb.Error as e:
         print(f"Error: {e}")
         sys.exit(1)
