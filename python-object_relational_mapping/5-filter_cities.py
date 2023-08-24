@@ -24,14 +24,15 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Use parameterized query to ensure the input is treated as data and not as part of the query
-        query = "SELECT * FROM cities LEFT JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC;"
+        query = "SELECT cities.name FROM cities LEFT JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC;"
         
         cursor.execute(query, (state_name_searched,))
 
         # Fetch and display the results
-        results = cursor.fetchall()
-        for row in results:
-            print(row)
+        city_names = ', '.join(row[0] for row in results)
+        
+        print(city_names)
+    
     
     except MySQLdb.Error as e:
         print("Error {}: {}".format(e.args[0], e.args[1]))
