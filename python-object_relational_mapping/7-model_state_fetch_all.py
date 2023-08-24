@@ -24,11 +24,12 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     
-    # Retrieve only the first state
-    state = session.query(State).order_by(State.id).first()
+    # Retrieve all State objects and sort by states.id in ascending order
+    states = session.query(State).order_by(State.id).first()
     
     # Display the results
-    print("{}: {}".format(state.id, state.name))
+    for state in states:
+        print("{}: {}".format(state.id, state.name))
     
     # Close the session
     session.close()
