@@ -25,7 +25,7 @@ if __name__ == "__main__":
     session = Session()
     
     # Retrieve only the first state
-    state = session.query(State).first()
+    state = session.query(State).limit(1)
     
     # Display the results
     for state in states:
