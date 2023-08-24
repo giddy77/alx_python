@@ -25,11 +25,10 @@ if __name__ == "__main__":
     session = Session()
     
     # Retrieve only the first state
-    state = session.query(State).limit(1)
+    state = session.query(State).order_by(State.id).first()
     
     # Display the results
-    for state in states:
-        print("{}: {}".format(state.id, state.name))
+    print("{}: {}".format(state.id, state.name))
     
     # Close the session
     session.close()
