@@ -23,10 +23,8 @@ if __name__ == "__main__":
         db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database_name)
         cursor = db.cursor()
 
-        """ use parameters query to 
-            ensure the input is treated as data and not query
-        """
-        query = "SELECT * FROM cities LEFT JOIN states ON cities.state_id  = states.id WHERE states.name = '%s' ORDER BY cities.id ASC"
+        # Use parameterized query to ensure the input is treated as data and not as part of the query
+        query = "SELECT * FROM cities LEFT JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC;"
         
         cursor.execute(query, (state_name_searched,))
 
@@ -34,6 +32,7 @@ if __name__ == "__main__":
         results = cursor.fetchall()
         for row in results:
             print(row)
+    
     except MySQLdb.Error as e:
         print("Error {}: {}".format(e.args[0], e.args[1]))
         sys.exit(1)
