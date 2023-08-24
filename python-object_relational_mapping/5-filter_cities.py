@@ -26,7 +26,7 @@ if __name__ == "__main__":
         # Use parameterized query to ensure the input is treated as data and not as part of the query
         query = "SELECT cities.name FROM cities LEFT JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC;"
         
-        cursor.execute(query, (state_name_searched,))
+        results = cursor.execute(query, (state_name_searched,))
 
         # Fetch and display the results
         city_names = ', '.join(row[0] for row in results)
