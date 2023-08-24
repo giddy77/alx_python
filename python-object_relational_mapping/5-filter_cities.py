@@ -29,9 +29,7 @@ if __name__ == "__main__":
         results = cursor.execute(query, (state_name_searched,))
 
         # Fetch and display the results
-        city_names = ', '.join(row[0] for row in results)
-        
-        print(city_names)
+        print(results)
     
     
     except MySQLdb.Error as e:
