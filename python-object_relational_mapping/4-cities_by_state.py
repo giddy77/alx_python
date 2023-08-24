@@ -22,7 +22,7 @@ if __name__ == "__main__":
         cursor = db.cursor()
 
         # Create and execute the SQL query
-        query = "SELECT * FROM cities ORDER BY cities.id ASC"
+        query = "SELECT cities.id, cities.name, states.name LEFT JOIN states ON states.id = cities.state_id ORDER BY cities.id ASC"
         cursor.execute(query)
 
         # Fetch and display the results
