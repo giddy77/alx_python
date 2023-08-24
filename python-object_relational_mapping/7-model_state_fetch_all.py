@@ -24,8 +24,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
     
-    # Retrieve all State objects and sort by states.id in ascending order
-    states = session.query(State).order_by(State.id).all()
+    # Retrieve only the first state
+    state = session.query(State).first()
     
     # Display the results
     for state in states:
