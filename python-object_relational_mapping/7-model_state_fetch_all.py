@@ -25,8 +25,7 @@ if __name__ == "__main__":
     session = Session()
     
     # Retrieve only the first state
-    state = session.query(State).order_by(State.id).first()
-    
+    state = session.query(State).order_by(State.id).limit(1).all()
     # Display the results
     print("{}: {}".format(state.id, state.name))
     
