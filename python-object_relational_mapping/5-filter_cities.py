@@ -26,9 +26,8 @@ if __name__ == "__main__":
         """ use parameters query to 
             ensure the input is treated as data and not query
         """
-        query = query = (
-           "SELECT * FROM cities LEFTJOIN states ON cities.state_id  = states.id WHERE states.name = '%s' ORDER BY cities.id ASC"
-        )
+        query = query = "SELECT * FROM cities LEFT JOIN states ON cities.state_id  = states.id WHERE states.name = '%s' ORDER BY cities.id ASC"
+        
         cursor.execute(query, (state_name_searched,))
 
         # Fetch and display the results
