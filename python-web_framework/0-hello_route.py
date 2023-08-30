@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 """we declare the route of the resource"""
-@app.route("/",strict_slashes = False)
+@app.route("/", strict_slashes = False)
 def main():
     """here is the function that executes when that route is hit"""
     return "Hello HBNB!"
