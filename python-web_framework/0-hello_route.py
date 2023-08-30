@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route("/",strict_slashes = False)
 def main():
     """here is the function that executes when that route is hit"""
-    print("Hello HBNB!")
+    return "Hello HBNB!"
 
 if __name__ == "__name__":
-    app.run(host="127.0.0.0.0",port = 5000)
+    app.run(host="0.0.0.0.0",port = 5000)
