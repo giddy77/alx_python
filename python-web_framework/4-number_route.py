@@ -33,7 +33,7 @@ def interger_check(text):
     """returns this is an interger if the number is an interger"""
     check = type(text,'int')
     if check:
-        return "This is an interger"
+        return text+ "is a number"
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port = 5000)
