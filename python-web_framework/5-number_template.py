@@ -34,9 +34,9 @@ def interger_check(n):
     return f"{n} is a number"
 
 @app.route("/number_template/<int:n>", strict_slashes = False)
-def displaypage():
+def displaypage(n):
     """function displays the template if the number is an interger"""
-    return render_template('templates/5-number.html')
+    return render_template('templates/5-number.html', number = n)
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port = 5000)
