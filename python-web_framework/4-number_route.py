@@ -28,12 +28,11 @@ def third(text="is cool"):
     modified = "Python "+text.replace('_', ' ')
     return modified
 
-@app.route("/number/<n>:", strict_slashes = False)
-def interger_check(text):
+@app.route("/number/<int:n>", strict_slashes = False)
+def interger_check(n):
     """returns this is an interger if the number is an interger"""
-    check = type(text,'int')
-    if check:
-        return text+ "is a number"
+    return f"{n} is a number"
+
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port = 5000)
