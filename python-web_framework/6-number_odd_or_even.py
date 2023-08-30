@@ -1,5 +1,4 @@
 """here we import the flask module"""
-from flask import Flask
 from flask import Flask, render_template
 
 """we intialise the Flask module"""
@@ -39,7 +38,7 @@ def displaypage(n):
     """function displays the template if the number is an interger"""
     return render_template('5-number.html', number = n)
 
-@app.route("/number_odd_or_even/<n>", strict_slashes = False)
+@app.route("/number_odd_or_even/<int:n>", strict_slashes = False)
 def odd_or_even(n):
     return render_template('6-number_odd_or_even.html', number=n)
     
