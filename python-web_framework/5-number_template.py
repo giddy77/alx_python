@@ -1,5 +1,6 @@
 """here we import the flask module"""
 from flask import Flask
+from flask import Flask, render_template
 
 """we intialise the Flask module"""
 app = Flask(__name__)
