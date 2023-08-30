@@ -19,7 +19,7 @@ def first():
 @app.route("/c/<text>", strict_slashes = False)
 def second(text):
     """this a text based function"""
-    modified = "C"+ text.replace('_'," ")
+    modified = "C" + text.replace('_',"")
     return modified
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port = 5000)
