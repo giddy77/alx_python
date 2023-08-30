@@ -21,6 +21,7 @@ def second(text):
     """this is text"""
     modified = "C " + text.replace('_', ' ')
     return modified
+@app.route("/python/", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes = False)
 def third(text="is cool"):
     """this is the third function"""
