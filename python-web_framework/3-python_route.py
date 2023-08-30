@@ -25,6 +25,7 @@ def second(text):
 def third(text):
     """the third function"""
     modified = "Python " + text.replace("_"," ")
+    return modified
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port = 5000)
