@@ -22,9 +22,9 @@ def second(text):
     modified = "C " + text.replace('_', ' ')
     return modified
 @app.route("/python/<text>", strict_slashes = False)
-def third(text):
+def third(text="is cool"):
     """the third function"""
-    modified = "Python is cool " + text.replace("_"," ")
+    modified = "Python " + text.replace("_"," ")
     return modified
     
 if __name__ == "__main__":
