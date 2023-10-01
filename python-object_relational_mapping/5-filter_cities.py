@@ -1,46 +1,56 @@
-#!/usr/bin/python3
-"""
-Script that takes in an argument and displays all values in the states table
-of hbtn_0e_0_usa where name matches the argument.
-"""
-
-import MySQLdb
+#!/usr/bin/env python3
 import sys
+import MySQLdb
+
+
+def filter_cities_by_state(username, password, database, state_name):
+    # Connect to the MySQL server
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
+
+    # Create a cursor
+    cursor = db.cursor()
+
+    # Create a parameterized query to retrieve cities of the specified state
+    query = """
+    SELECT cities.name
+    FROM cities
+    JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
+    ORDER BY cities.id ASC
+    """
+    cursor.execute(query, (state_name,))
+
+    # Fetch all the results
+    results = cursor.fetchall()
+
+    # Extract city names and join them
+    city_names = [row[0] for row in results]
+    cities_string = ", ".join(city_names)
+
+    # Print the results
+    print(cities_string)
+
+    # Close the cursor and connection
+    cursor.close()
+    db.close()
 
 if __name__ == "__main__":
-    # Check if all 4 arguments are provided
+    # Check for correct number of arguments
     if len(sys.argv) != 5:
-        print("Usage: {} username password database_name state_name_searched".format(sys.argv[0]))
+        print("Usage: {} <username> <password>"
+              "<database> <state_name>".format(sys.argv[0]))
         sys.exit(1)
-        
+
     username = sys.argv[1]
     password = sys.argv[2]
-    database_name = sys.argv[3]
-    state_name_searched = sys.argv[4]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
 
-    try:
-        # Connect to the MySQL server
-        db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database_name)
-        cursor = db.cursor()
-
-        # Use parameterized query to ensure the input is treated as data and not as part of the query
-        query = "SELECT cities.name FROM cities LEFT JOIN states ON cities.state_id = states.id WHERE states.name like '%s' ORDER BY cities.id ASC;"
-        
-        results = cursor.execute(query, (state_name_searched))
-
-        # Fetch and display the results
-        results_list = [',',join(1) for i in results]
-        if len(results_list) == 0:
-            
-             
-        print(results)
-    
-    
-    except MySQLdb.Error as e:
-        print("Error {}: {}".format(e.args[0], e.args[1]))
-        sys.exit(1)
-
-    finally:
-        # Close the database connection
-        if db:
-            db.close()
+    # Call the function to filter and display cities by state
+    filter_cities_by_state(username, password, database, state_name)
