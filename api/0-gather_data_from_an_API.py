@@ -1,37 +1,31 @@
+'''
+A python script that uses the REST API for a given employee ID
+returns information about his/her TODO list progress.
+'''
+
+import json
 import requests
 import sys
 
-def get_employee_todo_list_progress(employee_id):
-    # Fetch employee details
-    employee_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}'
-    response = requests.get(employee_url)
-    employee_data = response.json()
-
-    if 'name' not in employee_data:
-        print(f"Employee with ID {employee_id} not found.")
-        return
-
-    employee_name = employee_data['name']
-
-    # Fetch employee's TODO list
-    todo_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos'
-    response = requests.get(todo_url)
-    todo_data = response.json()
-
-    # Calculate the progress
-    total_tasks = len(todo_data)
-    completed_tasks = sum(1 for task in todo_data if task['completed'])
-
-    # Print employee TODO list progress
-    print(f"Employee {employee_name} is done with tasks ({completed_tasks}/{total_tasks}):")
-
-    for task in todo_data:
-        if task['completed']:
-            print(f"\t{task['title']}")
-
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: python script.py [employee_id]")
+if __name__ == "__main__":
+    employee_id = sys.argv[1]
+    
+    # Request employee details and todo list from the API
+    response_user = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}")
+    response_todos = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}/todos")
+    
+    if response_user.status_code == 200 and response_todos.status_code == 200:
+        user_data = json.loads(response_user.text)
+        todos_data = json.loads(response_todos.text)
+        
+        employee_name = user_data.get("name")
+        total_tasks = len(todos_data)
+        completed_tasks = sum(1 for task in todos_data if task["completed"])
+        
+        print(f"Employee {employee_name} is done with tasks({completed_tasks}/{total_tasks}):")
+        
+        for task in todos_data:
+            if task["completed"]:
+                print(f"\t {task['title']}")
     else:
-        employee_id = int(sys.argv[1])
-        get_employee_todo_list_progress(employee_id)
+        print("Failed to retrieve data. Please check the employee ID and API availability.")

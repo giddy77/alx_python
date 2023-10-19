@@ -1,49 +1,35 @@
-import requests  # Import the requests module for making HTTP requests
-import sys       # Import the sys module to access command-line arguments
-import json      # Import the json module for JSON handling
+'''
+A python script that uses the REST API for a given employee ID
+returns information about his/her TODO list progress.
+'''
 
-def get_employee_todo_list_progress(employee_id):
-    # Fetch employee details
-    employee_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}'
-    response = requests.get(employee_url)
-    employee_data = response.json()
+import json
+import requests
+import sys
 
-    # Check if the 'name' key exists in the employee data
-    if 'name' not in employee_data:
-        print(f"Employee with ID {employee_id} not found.")
-        return
+if __name__ == "__main__":
+    employee_id = sys.argv[1]
+    api_request = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(employee_id))
+    api_request1 = requests.get("https://jsonplaceholder.typicode.com/users/{}/todos".format(employee_id))
+    data = api_request.text
+    pjson = json.loads(data)
+    data1 = api_request1.text
+    pjson1 = json.loads(data1)
 
-    employee_name = employee_data['name']  # Get the employee's name
+    name_info = pjson['username']
 
-    # Fetch employee's TODO list
-    todo_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos'
-    response = requests.get(todo_url)
-    todo_data = response.json()
+    filename = "{}.json".format(employee_id)
 
-    # Calculate the progress
-    total_tasks = len(todo_data)  # Total number of tasks
-    completed_tasks = sum(1 for task in todo_data if task['completed'])  # Number of completed tasks
-
-    # Create a data structure for JSON export
-    export_data = {
-        "USER_ID": [{"task": task['title'], "completed": task['completed'], "username": employee_name} for task in todo_data]
+    # Create the dictionary structure
+    result = {
+        employee_id: [{
+            "task": item["title"],
+            "completed": item["completed"],
+            "username": name_info
+        } for item in pjson1]
     }
 
-    # Create a JSON file for the employee
-    json_file_name = f'{employee_id}.json'
+    # export data to json file
 
-    # Print employee TODO list progress
-    print(f"Employee {employee_name} is done with tasks ({completed_tasks}/{total_tasks}):")
-
-    # Write the data to the JSON file
-    with open(json_file_name, 'w') as json_file:
-        json.dump(export_data, json_file, indent=4)
-
-    print(f"Data exported to {json_file_name}")
-
-if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: python script.py [employee_id]")
-    else:
-        employee_id = int(sys.argv[1])
-        get_employee_todo_list_progress(employee_id)
+    with open(filename, "w") as outfile:
+        json.dump(result, outfile)
